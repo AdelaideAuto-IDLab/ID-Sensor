@@ -1,0 +1,71 @@
+{
+    "group": "lr",
+    "alert_threshold": 0.8,
+    "model": {
+        "type": "lr"
+    },
+    "train_data": {
+        "source": "data",
+        "patient_filter": [],
+        "type": "cnn",
+        "window_size": 10,
+        "window_stride": 1,
+        "batch_size": 20,
+        "shuffle": true,
+        "use_sensor_tag": true,
+        "use_extra_features": true,
+        "hole_filling": {
+            "mode": "zero_fill",
+            "rate": 0.1
+        },
+        "normalize": {
+            "rssi_center": -59.10,
+            "rssi_scale": 3.59,
+            "phase_center": 3.14159,
+            "phase_scale": 3.14159
+        },
+        "one_hot_metadata": {
+            "num_tags": 2,
+            "num_antennas": 3,
+            "num_frequencies": 12
+        },
+        "classes": 2,
+        "get_t": false
+    },
+    "test_data": {
+        "source": "data",
+        "patient_filter": [],
+        "type": "cnn",
+        "window_size": 10,
+        "window_stride": 1,
+        "batch_size": 0,
+        "shuffle": false,
+        "use_sensor_tag": true,
+        "use_extra_features": true,
+        "hole_filling": {
+            "mode": "zero_fill",
+            "rate": 0.1
+        },
+        "end_padding": {
+            "amount": 10,
+            "mode": "prev_fill",
+            "rate": 0.1
+        },
+        "normalize": {
+            "rssi_center": -59.10,
+            "rssi_scale": 3.59,
+            "phase_center": 3.14159,
+            "phase_scale": 3.14159
+        },
+        "one_hot_metadata": {
+            "num_tags": 2,
+            "num_antennas": 3,
+            "num_frequencies": 12
+        },
+        "classes": 2,
+        "get_t": true
+    },
+    "trainer": {
+        "log_dir": ".log/{group}/{id}"
+    }
+}

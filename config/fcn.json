@@ -1,0 +1,87 @@
+{
+    "group": "fcn",
+    "alert_threshold": 0.8,
+    "alert_threshold_low": 0.5,
+    "model": {
+        "type": "fcn",
+        "conv_layers": 5,
+        "filters": 40,
+        "kernel_size": [3, 1],
+        "activation": "leaky_relu",
+        "dropout_rate": 0.5,
+        "classes": 2,
+        "use_pooling": true,
+        "use_batch_norm": true
+    },
+    "train_data": {
+        "source": "data",
+        "patient_filter": [],
+        "classes": 2,
+        "type": "cnn",
+        "window_size": 10,
+        "window_stride": 5,
+        "batch_size": 80,
+        "shuffle": true,
+        "use_sensor_tag": true,
+        "use_extra_features": false,
+        "hole_filling": {
+            "mode": "zero_fill",
+            "rate": 0.1
+        },
+        "normalize": {
+            "rssi_center": -59.10,
+            "rssi_scale": 3.59,
+            "phase_center": 3.14159,
+            "phase_scale": 3.14159
+        },
+        "one_hot_metadata": {
+            "num_tags": 2,
+            "num_antennas": 3,
+            "num_frequencies": 12
+        },
+        "get_t": false
+    },
+    "test_data": {
+        "source": "data",
+        "patient_filter": [],
+        "classes": 2,
+        "type": "cnn",
+        "window_size": 10,
+        "window_stride": 5,
+        "batch_size": 0,
+        "shuffle": false,
+        "use_sensor_tag": true,
+        "use_extra_features": false,
+        "hole_filling": {
+            "mode": "zero_fill",
+            "rate": 0.1
+        },
+        "end_padding": {
+            "amount": 10,
+            "mode": "prev_fill",
+            "rate": 0.1
+        },
+        "normalize": {
+            "rssi_center": -59.10,
+            "rssi_scale": 3.59,
+            "phase_center": 3.14159,
+            "phase_scale": 3.14159
+        },
+        "one_hot_metadata": {
+            "num_tags": 2,
+            "num_antennas": 3,
+            "num_frequencies": 12
+        },
+        "get_t": true
+    },
+    "trainer": {
+        "log_dir": "/log/{group}/{id}",
+        "schedule": [
+            {
+                "epochs": 25,
+                "training_rate": 0.001,
+                "l2_loss": 0.001
+            }
+        ]
+    }
+}

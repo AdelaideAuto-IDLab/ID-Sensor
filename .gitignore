@@ -1,0 +1,6 @@
+**/target
+**/.vscode
+**/log
+**/.log
+**/__pycache__
+**/tsne_visualisations

@@ -1,0 +1,77 @@
+{
+    "group": "cnn_lstm",
+    "alert_threshold": 0.8,
+    "alert_threshold_low": 0.5,
+    "model": {
+        "type": "cnn_lstm",
+        "conv_layers": 4,
+        "conv_filters": 40,
+        "conv_window_size": 20,
+        "kernel_size": [3, 1],
+        "kernel_stride": [2, 1],
+        "activation": "elu",
+        "lstm_layers": 2,
+        "lstm_units": 160,
+        "lstm_steps": 40,
+        "dropout_rate": 0.5,
+        "classes": 2,
+        "use_pooling": false,
+        "use_batch_norm": false
+    },
+    "train_data": {
+        "source": "data",
+        "patient_filter": [],
+        "type": "lstm",
+        "inner_window_size": 20,
+        "inner_window_stride": 1,
+        "window_size": 40,
+        "window_stride": 20,
+        "batch_size": 80,
+        "shuffle": true,
+        "use_sensor_tag": true,
+        "use_extra_features": false,
+        "hole_filling": {
+            "mode": "zero_fill",
+            "rate": 0.1
+        },
+        "one_hot_metadata": {
+            "num_tags": 2,
+            "num_antennas": 3,
+            "num_frequencies": 12
+        },
+        "get_t": false
+    },
+    "test_data": {
+        "source": "data",
+        "patient_filter": [],
+        "type": "lstm",
+        "inner_window_size": 20,
+        "inner_window_stride": 1,
+        "window_size": 40,
+        "window_stride": 40,
+        "batch_size": 0,
+        "shuffle": false,
+        "use_sensor_tag": true,
+        "use_extra_features": false,
+        "hole_filling": {
+            "mode": "zero_fill",
+            "rate": 0.1
+        },
+        "one_hot_metadata": {
+            "num_tags": 2,
+            "num_antennas": 3,
+            "num_frequencies": 12
+        },
+        "get_t": true
+    },
+    "trainer": {
+        "log_dir": "/log/{group}/{id}",
+        "schedule": [
+            {
+                "epochs": 10,
+                "training_rate": 0.001,
+                "l2_loss": 0.0
+            }
+        ]
+    }
+}
