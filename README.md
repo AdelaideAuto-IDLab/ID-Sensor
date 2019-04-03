@@ -33,7 +33,19 @@ We provide a data loader and preprocessing tool and docker image for a model. To
 
 This repository is provided as part of the following paper:
 
-Super Low Resolution RF Powered Accelerometers for Alerting on Hospitalized Patient Bed Exits
+M. Chesser, A. Jayatilaka, R. Visvanathan, C. Fumeaux, A. Sample and D. C. Ranasinghe. 2019. "Super Low Resolution RF Powered Accelerometers for Alerting on Hospitalized Patient Bed Exits". *IEEE International Conference on Pervasive Computing and Communications (IEEE PerCom 2019). Kyoto, Japan.*
+
+Cite using:
+
+```
+@conference {2019,
+    title = {Super Low Resolution RF Powered Accelerometers for Alerting on Hospitalized Patient Bed Exits},
+    booktitle = {IEEE International Conference on Pervasive Computing and Communications (IEEE PerCom 2019)},
+    year = {2019},
+    address = {Kyoto, Japan},
+    author = {Michael Chesser and Asangi Jayatilaka and Renuka Visvanathan and Christophe Fumeaux and Alanson Sample and Damith C Ranasinghe}
+}
+```
 
 ## License
 
